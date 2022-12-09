@@ -22,12 +22,11 @@ namespace Monitoring
     {
         TcpClient tcpSocket;
 
-        int TimeOutMs = 100;
+        public int TimeOutMs = 2000;
 
         public TelnetConnection(string Hostname, int Port)
         {
             tcpSocket = new TcpClient(Hostname, Port);
-
         }
 
         public void WriteLine(string cmd)
@@ -35,15 +34,9 @@ namespace Monitoring
             Write(cmd + "\n");
         }
 
-        public string WriteLines(string cmd)
-        {
-            Write(cmd + "\n");
-            return Read();
-        }
-
         public void Write(string cmd)
         {
-            if (!tcpSocket.Connected) return;
+            if (!tcpSocket.Connected) return; 
             byte[] buf = System.Text.ASCIIEncoding.ASCII.GetBytes(cmd.Replace("\0xFF","\0xFF\0xFF"));
             tcpSocket.GetStream().Write(buf, 0, buf.Length);
         }
