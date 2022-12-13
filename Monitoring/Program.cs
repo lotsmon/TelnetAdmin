@@ -32,6 +32,8 @@ namespace Monitoring
             conf = Deserialize();
             #endregion
 
+            Snmp snmp = new Snmp().Run();
+            return;
             Console.WriteLine("Select action: \n 1. ShowMac \n 2. ShowReg \n 3. ShowSignal");
             string acid = Console.ReadLine();
             switch (acid)
@@ -138,6 +140,7 @@ namespace Monitoring
                     Console.WriteLine("No mac-address");
                 }
                 else Console.WriteLine(mcs);
+                Console.WriteLine("-------------------------");
             }
         }
 

@@ -12,6 +12,10 @@
     <Compile Remove="Porgram1.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SnmpSharpNet-core" Version="1.0.0" />
+  </ItemGroup>
+
   <ProjectExtensions><VisualStudio><UserProperties oltconf_1json__JsonSchema="https://beaujs.com/schema.json" /></VisualStudio></ProjectExtensions>
 
 </Project>
